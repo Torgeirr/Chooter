@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerDetection : MonoBehaviour {
 
-    public Gameobject Npc;
+    public Transform Npc;
+
+    public Transform player;
 
     public Vector3 distanceBetween;
 
@@ -16,11 +18,15 @@ public class PlayerDetection : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        distanceBetween = newVector3(Npc - gameobject.other);
+        if (Vector3.Distance(player.position, this.transform.position) <= 15) {
+
+            Debug.Log("Distance Closed");
+        }
+        /*distanceBetween = newVector3(Npc - gameObject.other);
 
         if (distanceBetween <= 15) {
             Debug.Log("Dialogue Box Popped Up");
-        }
+        }*/
 		
 	}
 }
